@@ -47,9 +47,8 @@ function init() {
    cubo = [];
    p=0;
    for(i=0;  i<5; i++){
-	p=p+4;
 	cubo.push(cube(4, 4, 4, 0xFF0000, 'Physical', false));
-	cubo[i].position.set(0,p,0);
+	cubo[i].translateY(p+=4);
 
    }
    
