@@ -50,7 +50,7 @@ function init() {
 	cubo.push(cube(4, 4, 4, 0xFF0000, 'Physical', false));
 	cubo[i].translateY(p+=4);
 
-   }
+   }//Fuente:https://threejs.org/docs/#api/en/core/Object3D.translateOnAxis
    
     //Luz (requerida para el material MeshLambertMaterial)
     light = new THREE.PointLight(0xFFFF00); //  Luz proveniente de un punto en el espacio, 
