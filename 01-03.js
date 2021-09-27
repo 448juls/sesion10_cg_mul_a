@@ -45,13 +45,14 @@ function init() {
     scene.add(axes);
 
    cubo = [];
-   cubo.push(cube(4, 4, 4, 0xFF0000, 'Physical', false));
-   cubo.push(cube(4, 4, 4, 0xFF0000, 'Standar', false));
+   p=0;
+   for(i=0;  i<5; i++){
+	p=p+4;
+	cubo.push(cube(4, 4, 4, 0xFF0000, 'Physical', false));
+	cubo[i].position.set(0,p,0);
 
-   cubo[0].position.set(-4, 9, 0);
-   cubo[1].position.set(-4, -9, 0);
-
-
+   }
+   
     //Luz (requerida para el material MeshLambertMaterial)
     light = new THREE.PointLight(0xFFFF00); //  Luz proveniente de un punto en el espacio, 
 		                                //  semejante al sol.
