@@ -19,6 +19,7 @@ function cube(x, y, z, color, material, alambrado){
     }
     
     var cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+    
 
     // position the cube
     cube.position.set(0, 0, 0);
@@ -45,12 +46,14 @@ function init() {
     scene.add(axes);
 
     var delta = 9;
+    var dim = 4;
 
-    var cuboX = cube(4, 4, 4, 0XEE7C28, 'Physical', false);
-    var cuboY = cube(4, 4, 4, 0X5BEE28, 'Physical', false);
-    var cuboZ = cube(4, 4, 4, 0XCDEE28, 'Physical', false);
+    //creación de cubos
+    var cuboX = cube(dim, dim, dim, 0XEE7C28, 'Physical', false);
+    var cuboY = cube(dim, dim, dim, 0X5BEE28, 'Physical', false);
+    var cuboZ = cube(dim, dim, dim, 0XCDEE28, 'Physical', false);
 
-
+    //translación de los cubos en cada eje
     cuboX.translateX(delta);
     cuboY.translateY(delta);
     cuboZ.translateZ(delta);
