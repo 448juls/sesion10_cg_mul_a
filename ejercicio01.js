@@ -44,13 +44,16 @@ function init() {
     var axes = new THREE.AxesHelper(20);
     scene.add(axes);
 
-   cubo = [];
-   p=0;
-   for(i=0;  i<5; i++){
-	cubo.push(cube(4, 4, 4, 0xFF0000, 'Physical', false));
-	cubo[i].translateY(p+=4);
+    var delta = 9;
 
-   }//Fuente:https://threejs.org/docs/#api/en/core/Object3D.translateOnAxis
+    var cuboX = cube(4, 4, 4, 0XEE7C28, 'Physical', false);
+    var cuboY = cube(4, 4, 4, 0X5BEE28, 'Physical', false);
+    var cuboZ = cube(4, 4, 4, 0XCDEE28, 'Physical', false);
+
+
+    cuboX.translateX(delta);
+    cuboY.translateY(delta);
+    cuboZ.translateZ(delta);
    
     //Luz (requerida para el material MeshLambertMaterial)
     light = new THREE.PointLight(0xFFFF00); //  Luz proveniente de un punto en el espacio, 
