@@ -53,7 +53,7 @@ function init() {
     var cuboY = cube(dim, dim, dim, 0X5BEE28, 'Physical', false);
     var cuboZ = cube(dim, dim, dim, 0XCDEE28, 'Physical', false);
 
-    //translación de los cubos en cada eje
+    //translación de los cubos en cada eje, depende de solo un parametro ya que en cada caso afecta solo un eje.
     cuboX.translateX(delta);
     cuboY.translateY(delta);
     cuboZ.translateZ(delta);
