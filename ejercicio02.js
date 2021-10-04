@@ -47,9 +47,13 @@ function init() {
 
     var delta = 9;
     var dim = 4;
+    var pivotY = new THREE.Object3D(0, 20, 0);
+    var pivotX = new THREE.Object3D(20, 0, 0);
+    var pivotZ = new THREE.Object3D(0, 0, 20);
+    var angulo = Math.PI/2;
 
     //creación de cubos
-    var cuboX = cube(dim, dim, dim, 0XEE7C28, 'Physical', false);
+    var cuboX = cube(dim, dim, dim, 0XEE7C28, 'Physical', false);   
     var cuboY = cube(dim, dim, dim, 0X5BEE28, 'Physical', false);
     var cuboZ = cube(dim, dim, dim, 0XCDEE28, 'Physical', false);
 
@@ -58,13 +62,21 @@ function init() {
     cuboY.translateY(delta);
     cuboZ.translateZ(delta);
 
-    cuboZ.rotation.y = 3.14/2;
+    pivotY.add(cuboZ);
+    pivotY.rotation.y = angulo;
+
+    pivotX.add(cuboY);
+    pivotX.rotation.x = angulo;
+
+    pivotZ.add(cuboX);
+    pivotZ.rotation.z = angulo;   
+   
    
     //Luz (requerida para el material MeshLambertMaterial)
     light = new THREE.PointLight(0xFFFF00); //  Luz proveniente de un punto en el espacio, 
 		                                //  semejante al sol.
     light.position.set( -10, 5, 10 );             //  Localización de la luz. (x, y, z).
-    scene.add( light );
+    scene.add( light, pivotY, pivotX, pivotZ);
 
 
     // position and point the camera to the center of the scene
